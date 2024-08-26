@@ -1,3 +1,5 @@
+Code to read and save temperature from ds18b20 temperature sensors with Arduino and python
+
 Arduino code is adapted from:
  * Rui Santos, https://randomnerdtutorials.com
 
