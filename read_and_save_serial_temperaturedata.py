@@ -29,6 +29,7 @@ def main():
     devices = set()
     last_readings = {}
     header_written = False
+    timestamp = None
 
     try:
         while True:
@@ -60,6 +61,9 @@ def main():
                 device_hex, temperature = line.split(',')
                 last_readings[device_hex] = temperature
             elif line == "-->":  # end of data packet - write line to file
+                if timestamp is None or not header_written:
+                    # Attached mid-packet; skip until we've seen a full <-- ... --> cycle
+                    continue
                 row = [timestamp] + [last_readings.get(device, "NaN") for device in sorted(devices)]
                 writer.writerow(row)
                 file.flush()  # Flush after every write to ensure data is saved immediately
