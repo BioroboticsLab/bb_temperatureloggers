@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bb_temploggers"
+version = "0.1.0"
+description = "Read and save temperature data from DS18B20 sensors via Arduino"
+requires-python = ">=3.8"
+dependencies = [
+    "pyserial",
+]
+
+[tool.setuptools]
+py-modules = ["read_and_save_serial_temperaturedata"]
