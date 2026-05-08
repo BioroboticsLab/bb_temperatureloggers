@@ -40,6 +40,7 @@ WorkingDirectory=/home/beesbook/bb2026/bb_temperatureloggers
 ExecStart=/home/beesbook/anaconda3/envs/beesbook/bin/python read_and_save_serial_temperaturedata.py
 Restart=always
 RestartSec=5
+Environment=PYTHONUNBUFFERED=1
 
 [Install]
 WantedBy=multi-user.target
